@@ -1,14 +1,21 @@
 package com.kazale.pontointeligente.controllers;
 
+import java.util.Date;
+import java.util.Formatter;
 import java.util.Optional;
+
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.datetime.DateFormatter;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -66,5 +73,24 @@ public class EmpresaController {
 
 		return empresaDto;
 	}
+	
+	
+	@GetMapping(value="/cadastrar")
+	public ResponseEntity< Response<EmpresaDto> > cadastrar(@Valid @RequestBody EmpresaDto empresaDto, BindingResult result) {
+		log.info("Adicionando empresa: {}", empresaDto.toString());
+		Response<EmpresaDto> response = new Response();
+	    Empresa empresa = this.converterDtoEmpresa(empresaDto, result);
+		
+		return null;
+	}
+
+	private Empresa converterDtoEmpresa(@Valid EmpresaDto empresaDto, BindingResult result) {
+		Empresa empresa = new Empresa();
+		empresa.setCnpj(empresaDto.getCnpj());
+		empresa.setDataAtualizacao(null);
+		return null;
+	}
+	
+
 
 }

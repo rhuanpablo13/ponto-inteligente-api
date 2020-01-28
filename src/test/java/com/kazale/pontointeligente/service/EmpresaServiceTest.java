@@ -3,6 +3,7 @@ package com.kazale.pontointeligente.service;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Date;
 import java.util.Optional;
 
 import org.junit.Before;
@@ -15,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import com.kazale.pontointeligente.entities.Empresa;
 import com.kazale.pontointeligente.repositories.EmpresaRepository;
 import com.kazale.pontointeligente.services.EmpresaService;
@@ -42,13 +44,21 @@ public class EmpresaServiceTest {
 	@Test
 	public void testBuscarEmpresaPorCnpj() {
 		Optional<Empresa> empresa = this.empresaService.buscarPorCnpj(CNPJ);
-
+		System.out.println("**********************");
+		System.out.println(empresa.toString());
 		assertTrue(empresa.isPresent());
 	}
 	
 	@Test
 	public void testPersistirEmpresa() {
-		Empresa empresa = this.empresaService.persistir(new Empresa());
+		Empresa emp = new Empresa();
+		emp.setCnpj("11861136000102");
+		emp.setDataAtualizacao(new Date());
+		emp.setDataCriacao(new Date());
+		emp.setRazaoSocial("Rhuan PC");
+		
+		//Empresa empresa = this.empresaService.persistir(new Empresa());
+		Empresa empresa = this.empresaService.persistir(emp);
 
 		assertNotNull(empresa);
 	}
