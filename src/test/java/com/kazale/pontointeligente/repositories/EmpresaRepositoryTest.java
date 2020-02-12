@@ -12,7 +12,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.kazale.pontointeligente.entities.Empresa;
-import com.kazale.pontointeligente.repositories.EmpresaRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

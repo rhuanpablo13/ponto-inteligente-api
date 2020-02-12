@@ -1,8 +1,8 @@
 package com.kazale.pontointeligente.utils;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.slf4j.Logger;
 
 public class PasswordUtils {
 
