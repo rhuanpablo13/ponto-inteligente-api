@@ -91,7 +91,8 @@ public class LancamentoController {
 		log.info("Buscando lançamento por ID: {}", id);
 		Response<LancamentoDto> response = new Response<LancamentoDto>();
 		Optional<Lancamento> lancamento = this.lancamentoService.buscarPorId(id);
-
+		
+		
 		if (!lancamento.isPresent()) {
 			log.info("Lançamento não encontrado para o ID: {}", id);
 			response.getErrors().add("Lançamento não encontrado para o id " + id);

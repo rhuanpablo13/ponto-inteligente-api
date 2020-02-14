@@ -108,6 +108,8 @@
 			<artifactId>jackson-datatype-jdk8</artifactId>
 		</dependency>
 		
+		
+		<!-- JWT Token -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
