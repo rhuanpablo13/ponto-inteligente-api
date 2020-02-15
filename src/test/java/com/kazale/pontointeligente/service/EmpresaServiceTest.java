@@ -24,7 +24,7 @@ import com.kazale.pontointeligente.services.EmpresaService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@ActiveProfiles("test")
+//@ActiveProfiles("test")
 public class EmpresaServiceTest {
 
 	@MockBean

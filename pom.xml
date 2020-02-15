@@ -50,11 +50,7 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
-		
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.flywaydb</groupId> -->
-<!-- 			<artifactId>flyway-core</artifactId> -->
-<!-- 		</dependency> -->
+
 		
 		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
 		<dependency>
@@ -113,6 +109,8 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.7.0</version>
 		</dependency>
+		
+		
 	</dependencies>
 
 
