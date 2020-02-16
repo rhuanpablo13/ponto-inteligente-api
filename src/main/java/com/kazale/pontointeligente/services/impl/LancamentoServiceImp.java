@@ -1,5 +1,6 @@
 package com.kazale.pontointeligente.services.impl;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -31,7 +32,11 @@ public class LancamentoServiceImp implements LancamentoService {
 	@Cacheable("lancamentoPorId")
 	public Optional<Lancamento> buscarPorId(Long id) {
 		log.info("Buscando um lançamento pelo ID {}", id);
-		return Optional.ofNullable(this.lancamentoRepository.getOne(id));
+		try {
+			return this.lancamentoRepository.findById(id);			
+		} catch (NoSuchElementException e) {
+			return Optional.empty();
+		}
 	}
 	
 	@CachePut("lancamentoPorId")
